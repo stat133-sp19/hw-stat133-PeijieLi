@@ -1,0 +1,77 @@
+---
+title: "Top Players that Make The Warriors Great"
+author: "Peijie Li"
+output: github_document
+---
+
+The Golden State Warriors have made a habit of bringing statistical impossibilities into reality. As Kevin Durant and Stephen Curry share the spotlight of leading Golden State to back-to-back NBA championships, it is easy to forget that the Warriors also employ many other best-performing shooters. Where do these current stars, including but not limited to Kevin Durant and Stephen Curry, outperform the others? In this article we present a close look at the shooting performance of some outstanding current Golden State Warriors players: Kevin Durant, Stephen Curry, Klay Thompson, Draymond Green and the last but not the least, Andre Iguodala.
+
+## Motivation
+
+## Background & Data
+Include an overview of each player
+Include Statistics
+
+
+## Analysis
+Include overall chart and table. Compare them
+Compare shot skills for 2PT, 3PT and overall
+
+```{r out.width='80%', echo=FALSE, fig.align='center'}
+knitr::include_graphics('../images/gsw-shot-charts.png')
+```
+
+```{r setup, include=FALSE, echo=FALSE}
+library(dplyr)
+library(gridExtra)
+df <- read.csv("../data/shots-data.csv", stringsAsFactors = FALSE)
+df <- mutate(df, shot_yes_2pt = ifelse(shot_type == "2PT Field Goal" & shot_made_flag == "shot_yes", 1, 0))
+df <- mutate(df, shot_yes_3pt = ifelse(shot_type == "3PT Field Goal" & shot_made_flag == "shot_yes", 1, 0))
+df <- mutate(df, shot_2pt = ifelse(shot_type == "2PT Field Goal", 1, 0))
+df <- mutate(df, shot_3pt = ifelse(shot_type == "3PT Field Goal", 1, 0))
+```
+
+```{r include=FALSE, echo=FALSE}
+twopt <- filter(df, shot_type == "2PT Field Goal")
+twopt <- summarise(group_by(twopt, name), total = sum(shot_2pt), made = sum(shot_yes_2pt))
+twopt <- mutate(twopt, perc_made = made * 100.0 /total)
+twopt <- arrange(twopt, desc(perc_made))
+```
+
+```{r include=FALSE, echo=FALSE}
+threept <- filter(df, shot_type == "3PT Field Goal")
+threept <- summarise(group_by(threept, name), total = sum(shot_3pt), made = sum(shot_yes_3pt))
+threept <- mutate(threept, perc_made = made * 100.0 /total)
+threept <- arrange(threept, desc(perc_made))
+```
+
+```{r include=FALSE, echo=FALSE}
+totalpt <- summarise(group_by(df, name), total = sum(shot_2pt+shot_3pt), made = sum(shot_yes_2pt+shot_yes_3pt))
+totalpt <- mutate(totalpt, perc_made = made * 100.0 /total)
+totalpt <- arrange(totalpt, desc(perc_made))
+```
+
+2PT Effective Shooting Percentage of GSW Players:
+
+```{r echo=FALSE}
+knitr::kable(twopt, caption = "2PT Effective Shooting Percentage by Player")
+```
+
+3PT Effective Shooting Percentage of GSW Players:
+
+```{r echo=FALSE}
+knitr::kable(threept, caption = "3PT Effective Shooting Percentage by Player")
+```
+
+(Overall) Effective Shooting Percentage of GSW Players:
+
+```{r echo=FALSE, result="asis"}
+knitr::kable(totalpt, caption = "Effective Shooting Percentage by Player")
+```
+
+## Conclusion
+
+## Reference
+Include a reference of where data is from.
+
+
