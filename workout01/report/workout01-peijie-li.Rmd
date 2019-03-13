@@ -4,7 +4,7 @@ author: "Peijie Li"
 output: github_document
 ---
 
-##### The Golden State Warriors have made a habit of bringing statistical impossibilities into reality. As Kevin Durant and Stephen Curry share the spotlight of leading Golden State to back-to-back NBA championships, it is easy to forget that the Warriors also employ many other best-performing shooters. Where do these current stars, including but not limited to Kevin Durant and Stephen Curry, outperform the others? In this article we present a close look at the shooting performance of some outstanding current Golden State Warriors players: Kevin Durant, Stephen Curry, Klay Thompson, Draymond Green and the last but not the least, Andre Iguodala.
+The Golden State Warriors have made a habit of bringing statistical impossibilities into reality. As Kevin Durant and Stephen Curry share the spotlight of leading Golden State to back-to-back NBA championships, it is easy to forget that the Warriors also employ many other best-performing shooters. Where do these current stars, including but not limited to Kevin Durant and Stephen Curry, outperform the others? In this article we present a close look at the shooting performance of some outstanding current Golden State Warriors players: Kevin Durant, Stephen Curry, Klay Thompson, Draymond Green and the last but not the least, Andre Iguodala.
 
 ## The Top Five Players
 
