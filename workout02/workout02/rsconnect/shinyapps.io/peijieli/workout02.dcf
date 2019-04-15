@@ -1,0 +1,12 @@
+name: workout02
+title: workout02
+username:
+account: peijieli
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 864908
+bundleId: 2011465
+url: https://peijieli.shinyapps.io/workout02/
+when: 1555306329.60901
+asMultiple: FALSE
+asStatic: FALSE
