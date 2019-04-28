@@ -37,24 +37,19 @@ Usage
 library(binomial)
 
 # compute the probability of a binomail distribution
-dis1 <- bin_probability(success = 2, trials = 5, prob = 0.5)
+bin_probability(success = 2, trials = 5, prob = 0.5)
+#> [1] 0.3125
+
+# compute the probability distribution of a binomial distribution
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+#> Warning in if (k > n) stop("k cannot be greater than n"): the condition has
+#> length > 1 and only the first element will be used
 plot(dis1)
 ```
 
 ![](README-unnamed-chunk-2-1.png)
 
 ``` r
-# compute the probability distribution of a binomial distribution
-bin_distribution(trials = 5, prob = 0.5)
-#> Warning in if (k > n) stop("k cannot be greater than n"): the condition has
-#> length > 1 and only the first element will be used
-#>   success probability
-#> 1       0     0.03125
-#> 2       1     0.15625
-#> 3       2     0.31250
-#> 4       3     0.31250
-#> 5       4     0.15625
-#> 6       5     0.03125
 
 # compute the cumulative probability distribution of a binomial distribution
 dis2 <- bin_cumulative(trials = 5, prob = 0.5)
