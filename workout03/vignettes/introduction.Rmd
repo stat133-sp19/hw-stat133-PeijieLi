@@ -1,0 +1,67 @@
+---
+title: "Getting Started with Binomial"
+author: "Peijie Li"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+library(ggplot2)
+```
+
+## Binomial Distribution
+
+The package `"binomial"` is a minimal implementation for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc, and to visualize the probability distribution.
+
+
+## Creating a `Binomial` variable
+
+The first step is to create a `"coin"` object with the function `coin()`:
+
+```{r}
+myBinomial <- bin_variable(trials = 5, prob = 0.5)
+myBinomial
+```
+
+The function will print nicely the content of a `"binomial"` object.
+
+The `summary()` function gives you detailed content about the `"binomial"` object:
+```{r}
+myBinomial <- bin_variable(trials = 10, prob = 0.3)
+myBinomialSum <- summary(myBinomial)
+myBinomialSum
+```
+
+
+## Calculating the Probability Distribution
+
+You can calculate and visualize the probability distribution with the following functions:
+
+```{r}
+bin_distribution(trials = 5, prob = 0.4)
+```
+
+```{r}
+bin_cumulative(trials = 5, prob = 0.4)
+```
+
+## Visualizing the Probability Distribution
+
+You can use the function `plot()` to create a graohic for the calculated probability distribution:
+
+```{r, fig.show='hold'}
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot(dis1)
+```
+
+
+```{r, fig.show='hold'}
+dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+plot(dis2)
+```
